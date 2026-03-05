@@ -4,8 +4,8 @@ import { redirect } from "next/navigation";
 import { DashboardSidebar } from "@/components/layout/dashboard-sidebar";
 import { Navbar } from "@/components/layout/navbar";
 
-export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const { userId } = auth();
+export default async function DashboardLayout({ children }: { children: React.ReactNode }) {
+  const { userId } = await auth();
 
   if (!userId) {
     redirect("/sign-in");
